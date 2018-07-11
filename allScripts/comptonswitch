@@ -1,0 +1,41 @@
+#!/bin/zsh
+
+# if 1 then normal || if 2 then low
+activeStyle=0
+
+while [ true ]
+do
+
+if [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 10 ] && [ "$(cat /sys/class/power_supply/BAT0/status)" = "Discharging" ] 
+then
+
+		if [ $activeStyle -ne 2 ] 
+		then
+
+				echo "Low battery, sending signal"
+				activeStyle=2
+
+				killall -9 compton
+				compton --config ~/.config/compton-low &
+
+		fi
+
+else 
+
+		if [ $activeStyle -ne 1 ] 
+		then
+
+				echo "High battery, sending signal"
+				activeStyle=1
+
+				killall -9 compton
+				compton --config ~/.config/compton-green &
+
+		fi
+
+fi
+
+sleep 20
+done
+
+echo "Script died!"
