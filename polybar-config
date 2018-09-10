@@ -1,0 +1,165 @@
+[c]
+green = #50fa7b
+red	  = #fa507a
+trans = #000000FF
+
+[bar/top]
+width 	= 100%
+height 	= 14
+
+background = ${c.trans}
+foreground = ${c.green}
+
+font-0 = "xos4 Terminus:pixelsize=10;1"
+font-1 = "FontAwesome:pixelsize=10;2"
+
+modules-left 	= xwindow 
+modules-center 	= open time sep date close
+modules-right 	= network volume battery
+
+[module/network]
+type = internal/network
+interface = wlp2s0
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-connected-padding = 3
+format-disconnected-padding = 3
+
+label-connected = %{F#fa507a}[%{F-}%essid%%{F#fa507a}]%{F-} %{F#fa507a}[%{F-}%local_ip%%{F#fa507a}]%{F-}
+
+[module/volume]
+type = internal/pulseaudio
+
+interval = 5
+
+format-volume = %{F#fa507a}[%{F-}<bar-volume>%{F#fa507a}]%{F-}
+format-muted  = %{F#fa507a}[<bar-volume>%{F#fa507a}]%{F-}
+
+bar-volume-indicator = 
+bar-volume-width = 15
+bar-volume-empty = -
+bar-volume-fill = -
+bar-volume-empty-foreground = ${c.trans}
+
+[module/battery]
+type = internal/battery
+
+full-at = 98
+
+battery = BAT0
+adapter = ACAD
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-padding = 3
+format-charging-padding = 3
+
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full =  %percentage%
+label-full-padding = 1
+
+ramp-capacity-0 = %{F#fa507a}%{F-}
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 200
+
+[module/xwindow]
+type = internal/xwindow
+
+format = <label>
+label = %title%
+label-maxlen = 80
+label-padding-left = 1
+
+[module/date]
+type = internal/date
+
+interval = 1.0
+format = <label>
+label = %date%
+date = %m:%d
+
+[module/open]
+type = custom/text
+content = [
+content-foreground = ${c.red}
+[module/close]
+type = custom/text
+content = ]
+content-foreground = ${c.red}
+
+[module/sep]
+type = custom/text 
+content = |
+content-foreground = ${c.red}
+content-padding = 1
+
+
+[module/time]
+type = internal/date
+
+interval = 1.0
+time = %H:%M
+
+format = <label>
+label = %time%
+
+[bar/bot]
+width 	= 100%
+height 	= 14
+bottom  = true
+
+background = ${c.trans}
+foreground = ${c.red}
+
+font-0 = "xos4 Terminus:pixelsize=10;0"
+font-1 = "FontAwesome:pixelsize=10;2"
+
+modules-left = xworkspaces
+modules-center   = alanwatts
+
+[module/alanwatts]
+type = custom/script
+
+label = %output%
+
+exec = /home/simon/.bin/alanwatts
+interval = 999999999
+
+[module/xworkspaces]
+type = internal/xworkspaces
+
+format = <label-state>
+pin-workspaces 	= true
+enable-click 	= false
+enable-scroll	 = false
+
+label-active 			     = 
+label-active-foreground      = ${c.green}
+label-active-padding-left    = 1
+label-active-padding-right   = 1
+
+label-occupied 			     = 
+label-occupied-foreground    = ${c.red}
+label-occupied-padding-left  = 1
+label-occupied-padding-right = 1
+
+label-urgent 			     = 
+label-urgent-foreground      = ${c.red}
+label-urgent-padding-left    = 1
+label-urgent-padding-right   = 1
+
+label-empty 			     = 
+label-empty-foreground       = ${c.red}
+label-empty-padding-left     = 1
+label-empty-padding-right    = 1

@@ -1,0 +1,158 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator
+
+
+# Any items in the `env` entry below will be added as
+# environment variables. Some entries may override variables
+# set by alacritty it self.
+env:
+  # TERM env customization.
+  #
+  # If this property is not set, alacritty will set it to xterm-256color.
+  #
+  # Note that some xterm terminfo databases don't declare support for italics.
+  # You can verify this by checking for the presence of `smso` and `sitm` in
+  # `infocmp xterm-256color`.
+  TERM: xterm-256color
+
+# Window dimensions in character columns and lines
+# Falls back to size specified by window manager if set to 0x0.
+# (changes require restart)
+window.dimensions:
+  columns: 84
+  lines: 24
+
+# Adds this many blank pixels of padding around the window
+# Units are physical pixels; this is not DPI aware.
+# (change requires restart)
+window.padding:
+  x: 3
+  y: 3
+
+# Display tabs using this many cells (changes require restart)
+tabspaces: 4
+
+# When true, bold text is drawn using the bright variant of colors.
+draw_bold_text_with_bright_colors: false
+
+font:
+  normal:
+    family: xos4 Terminus
+    style: Regular
+  bold:
+    family: xos4 Terminus
+    style: Bold
+  italic:
+    family: xos4 Terminus
+  size: 9.0
+
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+
+# View time per render
+render_timer: false
+custom_cursor_colors: false
+
+colors:
+  primary:
+    background: '0x262b35'
+    foreground: '0xfa507a'
+
+  cursor:
+    text: '0x000000'
+    cursor: '0xffffff'
+
+  normal:
+    black:   '0x000000'
+    red:     '0xdc00aa'
+    green:   '0x00ff00'
+    yellow:  '0x50fad0'
+    blue:    '0x50fad0'
+    magenta: '0x50fa7b'
+    cyan:    '0x50fa7b'
+    white:   '0xfa507a'
+  bright:
+    black:   '0x7afa50'
+    red:     '0xdd0000'
+    green:   '0x00ff00'
+    yellow:  '0xd050fa'
+    blue:    '0x94bff3'
+    magenta: '0xec93d3'
+    cyan:    '0x93e9e3'
+    white:   '0xffffff'
+  dim:
+    black:   '0x333333'
+    red:     '0x650000'
+    green:   '0x006500'
+    yellow:  '0x000065'
+    blue:    '0x000065'
+    magenta: '0x006565'
+    cyan:    '0xb800b8'
+    white:   '0xdddddd'
+
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
+
+# Background opacity
+background_opacity: 1.0
+
+mouse_bindings:
+  - { mouse: Middle, action: Paste}
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+
+hide_cursor_when_typing: false # xbanish already does this in a global scale
+cursor_style: Block
+live_config_reload: true
+
+key_bindings:
+  - { key: V,        mods: Control|Shift,    action: Paste               }
+  - { key: C,        mods: Control|Shift,    action: Copy                }
+  - { key: Q,        mods: Command,          action: Quit                }
+  - { key: W,        mods: Command,          action: Quit                }
+  - { key: Key0,     mods: Control,          action: ResetFontSize       }
+  - { key: Equals,   mods: Control,          action: IncreaseFontSize    }
+  - { key: Subtract, mods: Control,          action: DecreaseFontSize    }
+  - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
+  - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
+  - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
+  - { key: End,                     chars: "\x1b[F",   mode: ~AppCursor  }
+  - { key: PageUp,   mods: Shift,   chars: "\x1b[5;2~"                   }
+  - { key: PageUp,   mods: Control, chars: "\x1b[5;5~"                   }
+  - { key: PageUp,                  chars: "\x1b[5~"                     }
+  - { key: PageDown, mods: Shift,   chars: "\x1b[6;2~"                   }
+  - { key: PageDown, mods: Control, chars: "\x1b[6;5~"                   }
+  - { key: PageDown,                chars: "\x1b[6~"                     }
+  - { key: Tab,      mods: Shift,   chars: "\x1b[Z"                      }
+  - { key: Back,                    chars: "\x7f"                        }
+  - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    }
+  - { key: Insert,                  chars: "\x1b[2~"                     }
+  - { key: Delete,                  chars: "\x1b[3~"                     }
+  - { key: Left,     mods: Shift,   chars: "\x1b[1;2D"                   }
+  - { key: Left,     mods: Control, chars: "\x1b[1;5D"                   }
+  - { key: Left,     mods: Alt,     chars: "\x1b[1;3D"                   }
+  - { key: Left,                    chars: "\x1b[D",   mode: ~AppCursor  }
+  - { key: Left,                    chars: "\x1bOD",   mode: AppCursor   }
+  - { key: Right,    mods: Shift,   chars: "\x1b[1;2C"                   }
+  - { key: Right,    mods: Control, chars: "\x1b[1;5C"                   }
+  - { key: Right,    mods: Alt,     chars: "\x1b[1;3C"                   }
+  - { key: Right,                   chars: "\x1b[C",   mode: ~AppCursor  }
+  - { key: Right,                   chars: "\x1bOC",   mode: AppCursor   }
+  - { key: Up,       mods: Shift,   chars: "\x1b[1;2A"                   }
+  - { key: Up,       mods: Control, chars: "\x1b[1;5A"                   }
+  - { key: Up,       mods: Alt,     chars: "\x1b[1;3A"                   }
+  - { key: Up,                      chars: "\x1b[A",   mode: ~AppCursor  }
+  - { key: Up,                      chars: "\x1bOA",   mode: AppCursor   }
+  - { key: Down,     mods: Shift,   chars: "\x1b[1;2B"                   }
+  - { key: Down,     mods: Control, chars: "\x1b[1;5B"                   }
+  - { key: Down,     mods: Alt,     chars: "\x1b[1;3B"                   }
+  - { key: Down,                    chars: "\x1b[B",   mode: ~AppCursor  }
+  - { key: Down,                    chars: "\x1bOB",   mode: AppCursor   }
