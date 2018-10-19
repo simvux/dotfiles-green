@@ -1,0 +1,14 @@
+#!/usr/bin/perl6
+
+my $wm = @*ARGS[0];
+
+given $wm {
+		when "g" { $wm = "/home/simon/.spectrwm/green.conf"; say "\e[0;32mLoading Coral...";}
+		when "c" { $wm = "/home/simon/.spectrwm/yellow.conf"; say "\e[0;32mWelcome to Lemer, this was a bad idea but good luck"; 	  }
+		default { say "Which Configuration?"; exit 1 }
+}
+
+$wm = slurp $wm;
+spurt "/home/simon/.spectrwm.conf", $wm;
+
+shell "startx > ~/.coral.log 2>&1"

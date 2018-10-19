@@ -1,69 +1,83 @@
-# Window Decoration
-border_width			= 2
+# Green Colored Configuration File For Spectrwm 
+# github.com/AlmightyFloppyFish
+
+# Green:  50fa7b
+
+# <-> Reserve space for bar
+region 					= screen[1]:1366x740+0+14
+
+#		--> 	Scrap
+bar_enabled = 0
+bind[]          = MOD+Shift+Delete
+bind[]          = MOD+Shift+Return
+bind[]          = MOD+p
+bind[]          = MOD+w
+# bind[]			= MOD+Shift+q # Uncomment to disable spectrwm kill 
+
+name = ws[1]:1
+name = ws[2]:2
+name = ws[3]:3
+name = ws[4]:4
+name = ws[5]:5
+name = ws[6]:6
+name = ws[6]:6
+name = ws[7]:7
+name = ws[8]:8
+name = ws[9]:9
+name = ws[10]:10
+#		<-- 	Scrap
+# 		-->		Window Decoration
+border_width 			= 2
 color_focus				= rgb:50/fa/7b
 color_focus_maximized	= rgb:db/00/00
 color_unfocus			= rgb:4c/56/6a
-color_unfocus_maximized	= rgb:00/00/db
-tile_gap				= 10
-region_padding			= 10
-
-bar_enabled		= 1
-
-autorun 		= ws[1]:/home/simon/.bin/comptonswitch
-autorun			= ws[1]:feh --bg-scale /home/simon/Pictures/Wallpapers/green.png
-autorun 		= ws[1]:discordipviewer
-
-modkey = Mod1
-
-# Validated default programs:
-# TODO program[lock]		= i3color-black
-program[term]		= termite
-program[dmenu]		= bargreen
-# program[search]	= dmenu $dmenu_bottom -i -fn $bar_font -nb $bar_color -nf $bar_font_color -sb $bar_color_selected -sf $bar_font_color_selected
-# program[name_workspace]	= dmenu $dmenu_bottom -p Workspace -fn $bar_font -nb $bar_color -nf $bar_font_color -sb $bar_color_selected -sf $bar_font_color_selected
-
-# To disable validation of the above, free the respective binding(s):
-bind[]			= MOD+Shift+Delete
-bind[]			= MOD+Shift+Return
-bind[]			= MOD+p
-bind[]			= MOD+w
-bind[wind_del]	= MOD+w
-bind[term]		= MOD+Return
-bind[dmenu]		= MOD+p
-
-# autorun 		= ws[9]:qutebrowser
-autorun 		= ws[1]:xbanish
-autorun 		= ws[1]:pulseaudio -D
-# autorun			= ws[1]:/home/simon/.config/greenbar/run.sh
-
-# Mod keys
-# TODO program[lock]		= i3color-black
-program[touchpad] 	= /home/simon/.bin/toggletouchpad
-program[soundinc]	 = /home/simon/.bin/soundinc
-program[sounddec]	 = /home/simon/.bin/sounddec
-program[soundmute]	 = /home/simon/.bin/soundmute 
-program[brightinc]	 = /home/simon/.bin/brightnessinc
-program[brightdec]	 = /home/simon/.bin/brightnessdec
+color_unfocus_maximized = rgb:00/00/00
+tile_gap				= 8
+region_padding			= 0
+# 		<--		Window Decoration
+# 		--> 	Autorun
+autorun	= ws[1]:/home/simon/.bin/comptonswitch
+autorun = ws[1]:feh --bg-scale /home/simon/Pictures/Wallpapers/purebase.png
+# autorun = ws[1]:feh --bg-scale /home/simon/Pictures/Wallpapers/global.png
+autorun = ws[1]:xbanish
+autorun = ws[1]:pulseaudio -D
+autorun = ws[1]:/home/simon/.bin/greenpolybar
+autorun = ws[1]:/home/simon/.bin/onedrivesyncer
+autorun = ws[1]:/home/simon/.bin/toggletouchpad
+#		<-- 	Autorun
+#		-->		Program Declerations
+program[term]		 = alacritty
+program[dmenu]		 = bargreen
+# program[lock]		 = /home/simon/.bin/i3lock-green TODO
+program[touchpad]    = /home/simon/.bin/toggletouchpad
+program[soundinc]    = /home/simon/.bin/soundinc
+program[sounddec]    = /home/simon/.bin/sounddec
+program[soundmute]   = /home/simon/.bin/soundmute 
+program[brightinc]   = /home/simon/.bin/brightnessinc
+program[brightdec]   = /home/simon/.bin/brightnessdec
 program[selection]   = /home/simon/.bin/screenshootSelection
 program[screenshoot] = /home/simon/.bin/screenshootFull
-#bind[lock]		= XF86HomePage
-bind[touchpad]		= Print
-bind[soundinc]		= XF86AudioRaiseVolume
-bind[sounddec]		= XF86AudioLowerVolume
-bind[soundmute]		= XF86AudioMute
-bind[brightinc]		= XF86MonBrightnessUp
-bind[brightdec]		= XF86MonBrightnessDown
-bind[selection] 	= Shift+Print
-bind[screenshoot] 	= MOD+Print
-
-# Optional default programs that will only be validated if you override:
-# program[screenshot_all]	= screenshot.sh full	# optional
-# program[screenshot_wind]	= screenshot.sh window	# optional
-# program[initscr]	= initscreen.sh			# optional
-
-# EXAMPLE: Define 'firefox' action and bind to key.
-# program[firefox]	= firefox http://spectrwm.org/
-# bind[firefox]		= MOD+Shift+b
-
+program[calc] 		 = alacritty -e "python3"
+program[switchscreen] = perl6 /home/simon/.bin/switchscreenhack.p6
+program[update]     = alacritty -e "sudo pacman -Syu"
+#		<-- 	Program Declerations
+# 		-->		Key Bindings
+bind[wind_del]  = MOD+w
+bind[term]      = MOD+Return
+bind[dmenu]     = MOD+p
+bind[calc] 		= XF86Calculator
+bind[switchscreen] = MOD+o
+# bind[lock]		    = XF86HomePage                                                                               
+bind[touchpad]      = Print
+bind[soundinc]      = XF86AudioRaiseVolume
+bind[sounddec]      = XF86AudioLowerVolume
+bind[soundmute]     = XF86AudioMute
+bind[brightinc]     = XF86MonBrightnessUp
+bind[brightdec]     = XF86MonBrightnessDown
+bind[selection]     = Shift+Print
+bind[screenshoot]   = MOD+Print
+# 		<--		Key Bindings
+#		-->		Quirks
 quirk[testingprogram:testingprogram] = FLOAT
+#		<--		Quirks
 

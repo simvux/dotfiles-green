@@ -36,19 +36,28 @@ draw_bold_text_with_bright_colors: false
 
 font:
   normal:
-    family: xos4 Terminus
+      #family: xos4 Terminus
+    family: Misc Ohsnapu
+    #family: scientifica
+      #family: Misc Tamsyn
     style: Regular
   bold:
-    family: xos4 Terminus
+      #family: xos4 Terminus
+    family: Misc Ohsnapu
+    #family: Misc Tamsyn
+    #family: scientifica
     style: Bold
   italic:
-    family: xos4 Terminus
-  size: 9.0
+      #family: xos4 Terminus
+    family : Misc Ohsnapu
+    #family: Misc Tamsyn
+    #family: scientifica
+  size: 8.0
 
   offset:
     x: 0
     y: 0
-  glyph_offset:
+  glyph_offse:
     x: 0
     y: 0
 
@@ -59,40 +68,41 @@ custom_cursor_colors: false
 
 colors:
   primary:
+      #background: '0x262b35'
     background: '0x262b35'
     foreground: '0xfa507a'
 
   cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+    text: '0x000000' # #000000
+    cursor: '0xffffff' # #ffffff
 
   normal:
-    black:   '0x000000'
-    red:     '0xdc00aa'
-    green:   '0x00ff00'
-    yellow:  '0x50fad0'
-    blue:    '0x50fad0'
-    magenta: '0x50fa7b'
-    cyan:    '0x50fa7b'
-    white:   '0xfa507a'
+    black:   '0x000000' # #000000
+    red:     '0xdc00aa' # #dc00aa
+    green:   '0x00ff00' # #00ff00
+    yellow:  '0x50fad0' # #50fad0
+    blue:    '0x50fad0' # #50fad0
+    magenta: '0x50fa7b' # #50fa7b
+    cyan:    '0x7afa50' # #7afa50
+    white:   '0xfa507a' # #fa507a
   bright:
-    black:   '0x7afa50'
-    red:     '0xdd0000'
-    green:   '0x00ff00'
-    yellow:  '0xd050fa'
-    blue:    '0x94bff3'
-    magenta: '0xec93d3'
-    cyan:    '0x93e9e3'
-    white:   '0xffffff'
+    black:   '0x7afa50' # #7afa50
+    red:     '0xdd0000' # #dd0000
+    green:   '0x00ff00' # #00ff00
+    yellow:  '0x709afb' # #507afa
+    blue:    '0x94bff3' # #94bff3
+    magenta: '0xfa50cf' # #fa50cf
+    cyan:    '0x93e9e3' # #93e9e3
+    white:   '0xffffff' # #ffffff
   dim:
-    black:   '0x333333'
-    red:     '0x650000'
-    green:   '0x006500'
-    yellow:  '0x000065'
-    blue:    '0x000065'
-    magenta: '0x006565'
-    cyan:    '0xb800b8'
-    white:   '0xdddddd'
+    black:   '0x333333' # #333333
+    red:     '0x650000' # #650000
+    green:   '0x006500' # #006500
+    yellow:  '0x000065' # #000065
+    blue:    '0x000065' # #000065
+    magenta: '0x006565' # #006565
+    cyan:    '0xb800b8' # #b800b8
+    white:   '0xdddddd' # #dddddd
 
 visual_bell:
   animation: EaseOutExpo

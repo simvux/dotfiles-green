@@ -7,6 +7,8 @@ trans = #000000FF
 width 	= 100%
 height 	= 14
 
+monitor = eDP-1
+
 background = ${c.trans}
 foreground = ${c.green}
 
@@ -87,7 +89,7 @@ type = internal/date
 interval = 1.0
 format = <label>
 label = %date%
-date = %m:%d
+date = %d/%m
 
 [module/open]
 type = custom/text
@@ -119,6 +121,8 @@ width 	= 100%
 height 	= 14
 bottom  = true
 
+monitor = eDP-1
+
 background = ${c.trans}
 foreground = ${c.red}
 
@@ -133,7 +137,8 @@ type = custom/script
 
 label = %output%
 
-exec = /home/simon/.bin/alanwatts
+# exec = /home/simon/.bin/alanwatts
+exec = cat /home/simon/.mess
 interval = 999999999
 
 [module/xworkspaces]

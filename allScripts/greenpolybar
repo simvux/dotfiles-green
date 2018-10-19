@@ -1,0 +1,5 @@
+#!/usr/bin/perl6
+
+sleep 2;
+shell "polybar --config=/home/simon/.config/polybar/green top &";
+shell "polybar --config=/home/simon/.config/polybar/green bot &";

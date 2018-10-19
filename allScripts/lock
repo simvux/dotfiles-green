@@ -1,0 +1,18 @@
+#!/bin/bash
+
+G="#50fa7bff"
+R="fa507aff"
+T="00000000"
+W="cc0000aa"
+
+i3lock \
+--insidevercolor=$T \
+--ringvercolor=$R \
+--ringwrongcolor=$W \
+--insidecolor=$T \
+--ringcolor=$R \
+--linecolor=$G \
+--blur 5 \
+--indicator \
+--clock \
+
