@@ -114,7 +114,6 @@ alias giffpath="sudo find / 2> >(grep -v 'Permission denied' >&2) | grep"
 alias word="libreoffice --writer"
 alias powerpoint="libreoffice --impress"
 alias multiscreen='xrandr --output DP2 --auto --left-of eDP1'
-alias sshproxy="ssh -C2qTnN -D 8080 simon@78.71.26.88"
 alias tar.gz="tar xzf"
 alias tar.xz="tar xJf"
 alias dob="cd ~/Code/go/src/github.com/AlmightyF*/dob"
@@ -130,7 +129,6 @@ alias linker="ld -m elf_i386"
 alias asli="nasm -f elf32 main.nasm -o main.o ; ld -m elf_i386 main.o -o main ; ./main"
 alias elmli="elm-make src/Main.elm --output='www/index.html'"
 alias gogiscord='cd ~/Code/go/src/github.com/AlmightyFloppyFish/giscord'
-alias gate="ssh gate@78.71.26.88"
 alias vim="echo 'Did you mean nvim or actually vim?'; sleep 2; vim"
 alias scheck='./logic 2> /dev/null; echo 0'
 alias clean='pacman -Qdtq | sudo pacman -Rs -'
@@ -138,9 +136,7 @@ alias fixterm='export TERM=xterm'
 alias nvimrc="nvim ~/.config/nvim/init.vim"
 alias zshrc="nvim ~/.zshrc"
 alias netuse='sudo netstat -tulpn'
-alias craptop='ssh simon@78.71.26.88'
 alias craptop-local='ssh simon@192.168.1.201'
 alias touchpadtap="xinput set-prop 13 298 1"
 alias ef="cd ~/OneDrive/Programmering/code/web/Forum"
-alias backup="rsync -av --delete -e ssh /home/simon/Code/ simon@78.71.26.88:/home/simon/simon/code_backup/"
 alias giscord="go run /home/simon/Code/go/src/github.com/AlmightyFloppyFish/giscord/*.go"
